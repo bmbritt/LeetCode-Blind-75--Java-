@@ -16,13 +16,24 @@ class Solution {
     public boolean isSubtree(TreeNode root, TreeNode subRoot) {
         
         // recursively return subtree results for matching
+        TreeNode currentNode = root;
 
 
+
+        while (currentNode != null) {
+
+
+
+
+
+        }
         return false;
 
 
 
-
-
     }
+
+   
+
+ 
 }
