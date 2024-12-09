@@ -10,40 +10,22 @@ class TreeNode {
         this.left = left;
         this.right = right;
     }
-
-    public boolean isLeaf() {
-        return this.left == null && this.right == null;
-    }
-
-
 }
  
 class Solution {
-    public boolean isSubtree(TreeNode root, TreeNode subRoot) {
-        
-       return false;
+    public boolean isSubtree(TreeNode root, TreeNode subRoot) {     
+        return (root == null) ? false : 
+        (subRoot == null || isSameTree(root, subRoot) || 
+        isSubtree(root.left, subRoot) || isSubtree(root.right, subRoot));
     }
 
-    private boolean treesEqual(TreeNode root1, TreeNode root2) {
-
-
+    // helper 
+    public boolean isSameTree(TreeNode root1, TreeNode root2) {
         if (root1 == null ^ root2 == null) {
             return false;
-        }
-
-
-        if (root1.isLeaf() ^ root2.isLeaf()) {
-            return false;
-        }
-        
-         if (root1.isLeaf() && root2.isLeaf()) {
-            return root1.val == root2.val;
         } else {
-            return root1.val == root2.val && treesEqual(root1.left, root2.left) && treesEqual(root1.right, root2.right);
+            return (root1 == root2) || 
+            (root1.val == root2.val && isSameTree(root1.left, root2.left) && isSameTree(root1.right, root2.right));
         }
     }
-
-   
-
-
 }

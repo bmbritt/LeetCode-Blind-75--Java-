@@ -11,7 +11,7 @@ class TreeNode {
         this.right = right;
     }
 }
-class Solution {
+ public class Solution {
     public boolean isSameTree(TreeNode root1, TreeNode root2) {
             // trees differ in structure
             if (root1 == null ^ root2 == null) {
