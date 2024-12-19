@@ -10,6 +10,7 @@ class ListNode {
  
 class Solution {
     public ListNode reverseList(ListNode head) {
+        // swap all next values with the previous one, use a tmp
         return null;
     }
 }
