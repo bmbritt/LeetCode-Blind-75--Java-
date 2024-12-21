@@ -10,7 +10,14 @@ class ListNode {
  
 class Solution {
     public ListNode reverseList(ListNode head) {
-        // swap all next values with the previous one, use a tmp
-        return null;
+        ListNode prev = null;
+        ListNode currentNode = head;
+        while (currentNode != null) {
+            ListNode listRemainder = currentNode.next;
+            currentNode.next = prev;
+            prev = currentNode;
+            currentNode = listRemainder;
+        }
+        return currentNode;
     }
 }
