@@ -1,37 +1,22 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
 
 class Solution {
     public boolean isAnagram(String s, String t) {
         if (s.length() != t.length()) {
             return false;
         } else {
-            HashMap<Character, Integer> S_Map = new HashMap<Character, Integer>();
-            HashMap<Character, Integer> T_Map = new HashMap<Character, Integer>();
+            char s_array[] = s.toCharArray();
+            char t_array[] = t.toCharArray();
 
-            for (int i = 0; i < s.length(); i++) {
+            Arrays.sort(s_array);
+            Arrays.sort(t_array);
 
-                char s_letter = s.charAt(i);
-                char t_letter = t.charAt(i);
-
-                S_Map.put(s_letter, (S_Map.get(s_letter) == null) ? 
-                                    1 : 
-                                    S_Map.get(s_letter) + 1);
-
-                T_Map.put(t_letter, (T_Map.get(t_letter) == null) ? 
-                                    1 : 
-                                    T_Map.get(t_letter) + 1);
-            }
-
-            for (Map.Entry<Character, Integer> entry : S_Map.entrySet()) {
-                Character letter = entry.getKey();
-                Integer frequency = entry.getValue();
-                if (!T_Map.containsKey(letter) || !T_Map.get(letter).equals(frequency)) {
+            for (int i = 0; i < s_array.length; i++) {
+                if (s_array[i] != t_array[i]) {
                     return false;
-                } 
+                }
             }
             return true;
         }
     }
 }
-
