@@ -20,41 +20,15 @@ class ListNode {
 class Solution {
     public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
 
-        // 1 null 2 not
-        // 2 null 1 not
-        // both null
-
-        //[1,3,5,7,9]
-        //[2,4,6,8,9]
-
-        //l1 remainder [3,5,7,9]
-        //l2 remainder [4,6,8,9]
-
-        while (list1 != null && list2 != null) {
-
-            if (list2.val >= list1.val && list2.val <= list1.next.val) {
-                ListNode list1_remainder = list1.next;
-                ListNode list2_remainder = list2.next;
-
-                list2.next = list1_remainder;
-                list1.next = list2;
-                list2 = list2_remainder;
-                list1 = list1.next;
-            } else {
-
-                 
+        ListNode baseList = list1.val <= list2.val ? list1 : list2;
+        ListNode merginList = baseList == list1 ? list2 : list1;
+     
+        
 
 
 
 
-
-            }
-
-
-
-
-
-        }
+        
 
 
 
