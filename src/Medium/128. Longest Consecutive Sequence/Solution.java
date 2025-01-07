@@ -9,15 +9,13 @@ class Solution {
             set.add(number);
         }
 
-        for (int number : nums) {
-            if (!set.contains(number-1)) {
-                int element = number;
-                int numConsecutive = 1;
+        for (int member : set) {
 
-                while (set.contains(element + 1)) {
-                    set.remove(element);
+            if (!set.contains(member - 1)) {
+                int numConsecutive = 1;
+                while (set.contains(member + 1)) {
                     numConsecutive++;
-                    element++;
+                    member++;
                 }
                 result = Math.max(result, numConsecutive);
             }
